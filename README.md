@@ -1,4 +1,4 @@
-<img src="assets/pipeline.png" width="600"/>
+<img src="asset/project.png" width="600"/>
 
 # ToDoList 프로젝트
 
