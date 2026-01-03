@@ -1,10 +1,17 @@
 import './App.css'
+import Today from "./components/Today";
+import Add from "./components/Add";
+import ToDoList from './components/ToDoList';
 
 function App() {
 
   return (
     <>
-      TodoList
+      <div className='container'>
+        <Today />
+        <Add />
+        <ToDoList />
+      </div>
     </>
   )
 }
