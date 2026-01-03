@@ -11,6 +11,7 @@ function App() {
     { id: 1, content: "React 공부하기" },
     { id: 2, content: "빨래하기" },
     { id: 3, content: "노래연습하기" }]);
+
   return (
     <>
       <div className='container'>

@@ -1,16 +1,24 @@
 import "./ToDoList.css"
+import { useState } from "react"
 
 const ToDoList = ({ items, setItems }) => {
     const today = new Date();
 
     const onClickDelete = (itemId) => {
-        setItems(items.filter(i => i.id !== itemId));
+        setItems(prev => prev.filter(i => i.id !== itemId));
     }
 
+    const [search, setSearch] = useState("");
+
+    const filteredItems = search.trim() === "" ? items : items.filter(i => i.content.includes(search));
     return (
         <div>
             <h4>Todo List 🌱</h4>
             <input
+                onChange={(e) => {
+                    setSearch(e.target.value);
+                    setSearchItems(items.filter(i => i.content.includes(e.target.value)));
+                }}
                 aria-label="할 일 검색"
                 placeholder="검색어를 입력하세요"
                 style={
@@ -18,11 +26,11 @@ const ToDoList = ({ items, setItems }) => {
                         width: "100%",
                         border: "none",
                         borderBottom: "1px solid rgb(220,220,220)",
-                        padding: "15px 0",
+                        padding: "15px",
                         marginBottom: "14px",
                     }
                 } />
-            {items.map(item => (
+            {filteredItems.map(item => (
                 <div key={item.id}
                     className="TodoItem">
                     <input readOnly type="checkbox" style={{
@@ -37,8 +45,7 @@ const ToDoList = ({ items, setItems }) => {
                 </div>
             ))
             }
-
-        </div >
+        </div>
     )
 }
 
