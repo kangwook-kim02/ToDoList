@@ -17,7 +17,6 @@ const ToDoList = ({ items, setItems }) => {
             <input
                 onChange={(e) => {
                     setSearch(e.target.value);
-                    setSearchItems(items.filter(i => i.content.includes(e.target.value)));
                 }}
                 aria-label="할 일 검색"
                 placeholder="검색어를 입력하세요"
