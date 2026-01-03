@@ -1,12 +1,19 @@
-const Add = ({ content, setContent, items, setItems }) => {
+let id = 4;
 
+const Add = ({ content, setContent, items, setItems }) => {
     // 스프레드 연산을 통한 item list 추가
     const onClickButton = (e) => {
+
+        // content 값이 비어있는 경우 List에 추가하지 않음
+        if (content == "") {
+            return;
+        }
+
         setItems([
             ...items,
-            content
+            { id: id, content: content }
         ])
-
+        id++;
         setContent("");
     }
 

@@ -3,8 +3,8 @@ import "./ToDoList.css"
 const ToDoList = ({ items, setItems }) => {
     const today = new Date();
 
-    const onClickDelete = (item) => {
-        setItems(items.filter(i => i !== item));
+    const onClickDelete = (itemId) => {
+        setItems(items.filter(i => i.id !== itemId));
     }
 
     return (
@@ -23,22 +23,22 @@ const ToDoList = ({ items, setItems }) => {
                     }
                 } />
             {items.map(item => (
-                <div className="TodoItem">
+                <div key={item.id}
+                    className="TodoItem">
                     <input readOnly type="checkbox" style={{
                         width: "20px"
                     }} />
-                    <div className="content">{item}</div>
+                    <div className="content">{item.content}</div>
                     <div className="date">{today.getFullYear()}. {today.getMonth() + 1}. {today.getDate()} </div>
                     <button
-                        onClick={() => {
-                            return onClickDelete(item);
-                        }}>
+                        onClick={() => onClickDelete(item.id)}>
                         삭제
                     </button>
                 </div>
-            ))}
+            ))
+            }
 
-        </div>
+        </div >
     )
 }
 
