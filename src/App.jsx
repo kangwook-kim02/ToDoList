@@ -10,7 +10,7 @@ function App() {
       <div className='container'>
         <Today />
         <Add />
-        <ToDoList></ToDoList>
+        <ToDoList />
       </div>
     </>
   )

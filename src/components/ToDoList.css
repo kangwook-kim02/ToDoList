@@ -18,7 +18,7 @@
 
 .TodoItem > button {
     cursor: pointer;
-    color:gray;
+    color: gray;
     font-size: 14px;
     border: none;
     border-radius: 5px;
